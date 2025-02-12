@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Sundha Steel Traders</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Header -->
+  <header>
+    <div class="header-contact">
+      <div class="contact-info">
+        <span class="phone">(+91) 9423329545</span>
+        <span class="email">info@saisundhasteeltraders.store</span>
+      </div>
+    </div>
+    <div class="logo">
+      <img src="images/LOGO 1.jpg" alt="SAI SUNDHA TRADERS Logo">
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#" class="active" data-tab="home">Home</a></li>
+      <li><a href="#" data-tab="about-us">About Us</a></li>
+      <li><a href="#" data-tab="products">Products</a></li>
+      <li><a href="#" data-tab="contact-us">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Sections -->
+  <section id="home" class="tab-content active">
+    <div class="main-image">
+      <div class="text-overlay">
+        <h1>WELCOME TO</h1>
+        <h2>SAI SUNDHA STEEL TRADERS</h2>
+      </div>
+      <div class="image-container">
+        <img src="images/MAIN IMG.jpg" alt="Main Image" />
+      </div>
+    </div>
+    <section class="logos" class="tab-content">
+      <h2>Our Trading Partners</h2>
+      <div class="logo-item"><img src="images\jsw.png" alt="JSW"></div>
+      <div class="logo-item"><img src="images\ultra.png" alt="ULTRATECH"></div>
+      <div class="logo-item"><img src="images\wonder.jpeg" alt="WONDER"></div>
+      <div class="logo-item"><img src="images\ttata.jpeg" alt="TATA"></div>
+      <div class="logo-item"><img src="images\icon.jpg" alt="ICON"></div>
+      <div class="logo-item"><img src="images\swastik.jpeg" alt="SWASTIK"></div>
+      <div class="logo-item"><img src="images\kamdhrenu.png" alt="KAMDHENU"></div>
+    </section>
+  
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about-us" class="tab-content">
+    <div class="about-text">
+      <h2>Sai Sundha Steel & Traders</h2>
+      <p>Established in 2020, we offer a wide range of steel products with an emphasis on quality and reliability.</p>
+      <p>We deal in various types of steel for construction, fabrication, and more.</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="tab-content">
+    <h2 class="section-heading">Our Products</h2>
+
+    <!-- Product Categories (Tabs) -->
+    <div class="product-categories">
+      <button class="product-tab active" data-target="steel">Steel</button>
+      <button class="product-tab" data-target="sheets">Sheets</button>
+      <button class="product-tab" data-target="hardware">Hardware</button>
+      <button class="product-tab" data-target="cement">Cement</button>
+    </div>
+
+    <!-- Steel Category Image -->
+    <div class="category-image steel">
+      
+    
+    </div>
+
+    <!-- Product Details Container -->
+    <div class="product-details-container">
+      <!-- Steel Subcategories -->
+      <div class="product-details steel active">
+        <h3>Steel Products</h3>
+        <button class="product-toggle">ICON STEEL</button>
+        <div class="product-details">
+          <p>Details about ICON STEEL products.</p>
+          <img src="images/steel bar.jpeg" alt="Steel Bar" />
+        </div>
+        <button class="product-toggle">JSW STEEL</button>
+        <div class="product-details">
+          <p>Details about JSW STEEL products.</p>
+        </div>
+      </div>
+
+      <!-- Sheets Subcategories -->
+      <div class="product-details sheets">
+        <h3>Sheets Products</h3>
+        <button class="product-toggle">TATA SHEETS</button>
+        <div class="product-details">
+          <p>Details about Tata Sheets products.</p>
+        </div>
+        <button class="product-toggle">JSW SHEETS</button>
+        <div class="product-details">
+          <p>Details about JSW Sheets products.</p>
+          <img src="images/jsw_sheet.jpg" alt="JSW Sheets" />
+        </div>
+      </div>
+
+      <!-- Hardware Subcategories -->
+      <div class="product-details hardware">
+        <h3>Hardware Products</h3>
+        <button class="product-toggle">CEMENT HARDWARE</button>
+        <div class="product-details">
+          <p>Details about Cement Hardware products.</p>
+        </div>
+        <button class="product-toggle">IRON HARDWARE</button>
+        <div class="product-details">
+          <p>Details about Iron Hardware products.</p>
+        </div>
+      </div>
+
+      <!-- Cement Subcategories -->
+      <div class="product-details cement">
+        <h3>Cement Products</h3>
+        <button class="product-toggle">ULTRATECH CEMENT</button>
+        <div class="product-details">
+          <p>Details about ULTRATECH Cement products.</p>
+        </div>
+        <button class="product-toggle">WONDER CEMENT</button>
+        <div class="product-details">
+          <p>Details about WONDER Cement products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact-us" class="tab-content">
+    <div class="contact-info">
+      <p>Contact us at (+91) 9423329545 or email: info@saisundhasteeltraders.store</p>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Tab switching for main navigation (Home, About Us, Products, etc.)
+      const tabs = document.querySelectorAll('nav ul li a');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          // Remove active class from all tabs
+          tabs.forEach(tab => tab.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          // Add active class to the clicked tab and corresponding content
+          tab.classList.add('active');
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Toggle product details (within Products section)
+      const productToggles = document.querySelectorAll('.product-toggle');
+      
+      productToggles.forEach(button => {
+        button.addEventListener('click', function () {
+          const productDetails = this.nextElementSibling; // the details section
+          productDetails.style.display = (productDetails.style.display === 'block') ? 'none' : 'block';
+
+          // Toggle button active state
+          this.classList.toggle('active');
+        });
+      });
+
+      // Tab switching for product categories (Steel, Cement, Sheets, etc.)
+      const productTabs = document.querySelectorAll('.product-tab');
+      const productDetailsSections = document.querySelectorAll('.product-details');
+
+      productTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          // Remove active class from all product tabs
+          productTabs.forEach(tab => tab.classList.remove('active'));
+          // Hide all product details sections
+          productDetailsSections.forEach(section => section.classList.remove('active'));
+
+          // Add active class to the clicked tab
+          this.classList.add('active');
+
+          // Show the corresponding product details section
+          const targetClass = this.getAttribute('data-target');
+          document.querySelector(`.product-details.${targetClass}`).classList.add('active');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
