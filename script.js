@@ -62,6 +62,17 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById(sectionId).classList.add('active');
       });
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+        var menu = document.getElementById("mobile-menu");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    });
+});
+
 
   // **UPDATED FUNCTIONALITY: OPEN SUBCATEGORY PAGE IN SAME TAB**
   const galleryItems = document.querySelectorAll(".gallery-item");
