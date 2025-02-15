@@ -19,6 +19,9 @@
   </header>
 
   <!-- Navigation Bar -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰ <!-- Unicode for the three-line menu icon -->
+  </div>
   <nav>
     <ul>
       <li><a href="#" class="active" data-tab="home">Home</a></li>
@@ -151,6 +154,17 @@
 
   <!-- JavaScript -->
   <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("mobile-menu");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+  </script>
+  
 
 </body>
 </html>
