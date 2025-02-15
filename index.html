@@ -16,9 +16,6 @@
         <span class="email">info@saisundhasteeltraders.store</span>
       </div>
     </div>
-    <div class="logo">
-      <img src="images/LOGO 1.jpg" alt="SAI SUNDHA TRADERS Logo">
-    </div>
   </header>
 
   <!-- Navigation Bar -->
@@ -33,26 +30,25 @@
 
   <!-- Main Content Sections -->
   <section id="home" class="tab-content active">
-    <div class="main-image">
-      <div class="text-overlay">
-        <h1>WELCOME TO</h1>
-        <h2>SAI SUNDHA STEEL TRADERS</h2>
-      </div>
-      <div class="image-container">
-        <img src="images/MAIN IMG.jpg" alt="Main Image" />
-      </div>
+    <div class="image-container">
+        <img src="images/newmain.jpg" alt="Main Image">
+        <div class="text-overlay">
+            <h1>WELCOME TO</h1>
+            <h2>SAI SUNDHA STEEL TRADERS</h2>
+        </div>
     </div>
-    <section class="logos" class="tab-content">
+    
+    <!-- Logos Section -->
+    <section class="logos">
       <h2>Our Trading Partners</h2>
-      <div class="logo-item"><img src="images\jsw.png" alt="JSW"></div>
-      <div class="logo-item"><img src="images\ultra.png" alt="ULTRATECH"></div>
-      <div class="logo-item"><img src="images\wonder.jpeg" alt="WONDER"></div>
-      <div class="logo-item"><img src="images\ttata.jpeg" alt="TATA"></div>
-      <div class="logo-item"><img src="images\icon.jpg" alt="ICON"></div>
-      <div class="logo-item"><img src="images\swastik.jpeg" alt="SWASTIK"></div>
-      <div class="logo-item"><img src="images\kamdhrenu.png" alt="KAMDHENU"></div>
+      <div class="logo-item"><img src="images/jsw.png" alt="JSW"></div>
+      <div class="logo-item"><img src="images/ultra.png" alt="ULTRATECH"></div>
+      <div class="logo-item"><img src="images/wonder.jpeg" alt="WONDER"></div>
+      <div class="logo-item"><img src="images/ttata.jpeg" alt="TATA"></div>
+      <div class="logo-item"><img src="images/icon.jpg" alt="ICON"></div>
+      <div class="logo-item"><img src="images/swastik.jpeg" alt="SWASTIK"></div>
+      <div class="logo-item"><img src="images/kamdhrenu.png" alt="KAMDHENU"></div>
     </section>
-  
   </section>
 
   <!-- About Us Section -->
@@ -68,24 +64,30 @@
   <section id="products" class="tab-content">
     <h2 class="section-heading">Our Products</h2>
 
-    <!-- Product Categories (Tabs) -->
-    <div class="product-categories">
-      <button class="product-tab active" data-target="steel">Steel</button>
-      <button class="product-tab" data-target="sheets">Sheets</button>
-      <button class="product-tab" data-target="hardware">Hardware</button>
-      <button class="product-tab" data-target="cement">Cement</button>
-    </div>
-
-    <!-- Steel Category Image -->
-    <div class="category-image steel">
-      
-    
+    <!-- Product Image Gallery -->
+    <div class="product-gallery">
+      <div class="gallery-item" data-target-page="steel.html">
+        <img src="images/steel1.jpeg" alt="Steel Products">
+        <p>Steel</p>
+      </div>
+      <div class="gallery-item" data-target-page="sheets.html">
+        <img src="images/sheetsss.jpg" alt="Sheets">
+        <p>Sheets</p>
+      </div>
+      <div class="gallery-item" data-target-page="hardware.html">
+        <img src="images/hardware1.jpg" alt="Hardware">
+        <p>Hardware</p>
+      </div>
+      <div class="gallery-item" data-target-page="cement.html">
+        <img src="images/sement.jpeg" alt="Cement">
+        <p>Cement</p>
+      </div>
     </div>
 
     <!-- Product Details Container -->
     <div class="product-details-container">
       <!-- Steel Subcategories -->
-      <div class="product-details steel active">
+      <div class="product-details steel">
         <h3>Steel Products</h3>
         <button class="product-toggle">ICON STEEL</button>
         <div class="product-details">
@@ -148,62 +150,7 @@
   </section>
 
   <!-- JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-      // Tab switching for main navigation (Home, About Us, Products, etc.)
-      const tabs = document.querySelectorAll('nav ul li a');
-      const tabContents = document.querySelectorAll('.tab-content');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function (event) {
-          event.preventDefault();
-
-          // Remove active class from all tabs
-          tabs.forEach(tab => tab.classList.remove('active'));
-          tabContents.forEach(content => content.classList.remove('active'));
-
-          // Add active class to the clicked tab and corresponding content
-          tab.classList.add('active');
-          const tabId = tab.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-
-      // Toggle product details (within Products section)
-      const productToggles = document.querySelectorAll('.product-toggle');
-      
-      productToggles.forEach(button => {
-        button.addEventListener('click', function () {
-          const productDetails = this.nextElementSibling; // the details section
-          productDetails.style.display = (productDetails.style.display === 'block') ? 'none' : 'block';
-
-          // Toggle button active state
-          this.classList.toggle('active');
-        });
-      });
-
-      // Tab switching for product categories (Steel, Cement, Sheets, etc.)
-      const productTabs = document.querySelectorAll('.product-tab');
-      const productDetailsSections = document.querySelectorAll('.product-details');
-
-      productTabs.forEach(tab => {
-        tab.addEventListener('click', function () {
-          // Remove active class from all product tabs
-          productTabs.forEach(tab => tab.classList.remove('active'));
-          // Hide all product details sections
-          productDetailsSections.forEach(section => section.classList.remove('active'));
-
-          // Add active class to the clicked tab
-          this.classList.add('active');
-
-          // Show the corresponding product details section
-          const targetClass = this.getAttribute('data-target');
-          document.querySelector(`.product-details.${targetClass}`).classList.add('active');
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

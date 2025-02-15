@@ -3,19 +3,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   background-color: #f4f4f4;
+  color: #333;
   line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
 /* Header */
 header {
-  background-color: #613232;
-  color: white;
-  padding: 20px;
+  background-color: #000000;
+  color: #fff;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,24 +36,17 @@ header {
   font-size: 14px;
 }
 
-.contact-info span {
-  margin-right: 10px;
-}
-
-.logo img {
-  max-width: 200px;
-}
 
 /* Navigation Bar */
 nav {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 15px 0;
-  text-align: center;
+  text-align: right;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
 }
 
 nav ul li {
@@ -61,67 +60,104 @@ nav ul li a {
   color: #000;
   padding: 10px;
   text-transform: uppercase;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
 }
 
+nav ul li a:hover,
 nav ul li a.active {
-  color: #613232;
-  border-bottom: 2px solid #613232;
+  color: #ffffff;
+  background-color: #000000;
 }
 
-/* Tab Content */
+/* Main Content Sections */
 .tab-content {
   display: none;
+  
 }
 
 .tab-content.active {
   display: block;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Home Section */
+/* Ensure home section starts below the navigation */
 #home {
-  background-color: #000000;
-}
-
-.main-image {
-  position: relative;
+  padding-top: 20px;
   text-align: center;
-  padding-top: 50px;
+  position: relative;
+}
+/* Image Container - Full Width & Height */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  margin-top: 0; /* No margin to ensure full coverage */
 }
 
-.text-overlay h1,
-.text-overlay h2 {
-  color: rgb(255, 253, 253);
-  margin: 0;
-  padding: 10px;
+/* Ensure Image Covers Entire Screen */
+.image-container img {
+  width: 100%;
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensures full coverage without distortion */
+  display: block;
 }
 
+/* Text Overlay - Perfect Centering */
+.text-overlay {
+  position: absolute;
+  top: 50%;  /* Center the text vertically */
+  left: 50%; /* Center the text horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+  color: rgb(234, 136, 16);
+  text-align: center;
+ 
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Adjust width for readability */
+}
+
+/* Responsive Text */
 .text-overlay h1 {
-  font-size: 24px;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #000;
 }
 
-.text-overlay h2 {
-  font-size: 36px;
+.text-overlay h2 { 
+  font-size: 48px;
   font-weight: bold;
 }
 
-.image-container {
-  overflow: hidden;
+/* Make it responsive */
+@media (max-width: 768px) {
+  .image-container {
+    height: 60vh; /* Adjust height for smaller screens */
+  }
+
+  .text-overlay {
+    width: 90%;
+  }
+
+  .text-overlay h1 {
+    font-size: 28px;
+  }
+
+  .text-overlay h2 {
+    font-size: 36px;
+  }
 }
 
-.image-container img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-}
 
 /* About Us Section */
-#about-us {
-  padding: 40px 20px;
-  background-color: #fff;
-  text-align: center;
-}
-
 #about-us h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -129,27 +165,14 @@ nav ul li a.active {
 
 #about-us p {
   font-size: 18px;
-  line-height: 1.6;
   color: #555;
-}
-
-/* Products Section */
-#products {
-  padding: 50px 20px;
-  background-color: #fff;
-}
-
-h2.section-heading {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #613232;
 }
 
 /* Product Categories (Tabs) */
 .product-categories {
   display: flex;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -159,8 +182,7 @@ h2.section-heading {
   padding: 12px 20px;
   font-size: 18px;
   cursor: pointer;
-  margin-right: 10px;
-  transition: all 0.3s;
+  transition: 0.3s;
   border-radius: 5px;
 }
 
@@ -169,24 +191,65 @@ h2.section-heading {
 }
 
 .product-tab.active {
-  background-color: #000000;
-  color: rgb(255, 255, 255);
+  background-color: #000;
+  color: #fff;
 }
 
-/* Category Image */
-.category-image img {
-  max-width: 100%;
+/* Product Details */
+.product-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-details {
+  display: none;
+  width: 30%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details.active {
   display: block;
-  margin: 20px auto;
-  border-radius: 8px;
 }
 
+.product-details img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.product-toggle {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.product-toggle:hover {
+  background-color: #ddd;
+}
+
+.product-toggle.active {
+  background-color: #613232;
+  color: #fff;
+}
+
+/* Logos Section - Positioned at the bottom of the Home Section */
 .logos {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 50px 20px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .logos h2 {
@@ -194,6 +257,7 @@ h2.section-heading {
   text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
+  color: #000000;
 }
 
 .logo-item {
@@ -208,18 +272,20 @@ h2.section-heading {
   max-height: 120px;
   object-fit: contain;
 }
+
+/* Category Images */
 .category-images {
   display: flex;
-  justify-content: space-between; /* Spaces out images */
-  gap: 30px; /* Sets the space between the images */
-  margin-bottom: 20px; /* Adds spacing below the images */
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 20px;
 }
 
 .category-image {
   max-width: 200px;
   max-height: 150px;
-  object-fit: cover; /* Ensures the image fits properly */
-  border-radius: 8px; /* Adds rounded corners to images */
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .category-image img {
@@ -228,87 +294,56 @@ h2.section-heading {
   object-fit: cover;
 }
 
-/* Product Details Section */
-.product-details-container {
+/* Product Gallery */
+.product-gallery {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 150px;
+  margin-top: 120px;
 }
 
-.product-details {
-  display: none;
-  width: 30%;
-  text-align: center;
-}
-
-.product-details img {
-  max-width: 100%;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-.product-details.active {
-  display: block;
-}
-
-/* Steel, Cement, and Other Product Details */
-.product-details.steel {
-  background-color: #f0f0f0;
-  padding: 20px;
-}
-
-.product-details.cement {
-  background-color: #e5e5e5;
-  padding: 20px;
-}
-
-.product-details.sheets {
-  background-color: #fafafa;
-  padding: 20px;
-}
-
-.product-details.hardware {
-  background-color: #f9f9f9;
-  padding: 20px;
-}
-
-/* Product Toggle Button Styles */
-.product-toggle {
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
-  padding: 12px 20px;
-  width: 100%;
-  text-align: justify;
-  border-radius: 5px;
+.gallery-item {
+  width: 180px;
+  text-align: center ;
   cursor: pointer;
-  font-size: 18px;
-  margin-bottom: 15px;
-  transition: all 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-toggle:hover {
-  background-color: #ddd;
+.gallery-item img {
+  width: 150%;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
-.product-toggle:focus {
-  background-color: #ccc;
-}
-
-.product-toggle.active {
-  background-color: #613232;
-  color: white;
-}
-
-.product-details {
-  display: none;
-  margin-top: 15px;
-  padding-left: 20px;
+.gallery-item p {
+  margin-top: 10px;
   font-size: 16px;
+  font-weight: bold;
   color: #333;
 }
 
-.product-details img {
-  max-width: 100%;
-  margin-top: 10px;
-  border-radius: 5px;
+/* Hover effect */
+.gallery-item:hover {
+  transform: scale(1.20);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Active state for selected product details */
+.product-details.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .product-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    width: 90%;
+  }
 }
