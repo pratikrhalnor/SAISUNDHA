@@ -116,6 +116,86 @@
             .catch(error => console.error("Error loading contact.html:", error));
     });
 </script>
+<!-- Chatbot Button -->
+<button id="chatbot-toggle">💬 Chat</button>
+
+<!-- Chatbot Container (Initially Hidden) -->
+<div class="chatbot-container" id="chatbot">
+    <iframe
+        src="https://www.chatbase.co/chatbot-iframe/OAvOjt_bOSjERwpCVA_PT"
+        class="chatbot-frame"
+        frameborder="0"
+    ></iframe>
+</div>
+
+<!-- CSS -->
+<style>
+/* Chatbot Button */
+#chatbot-toggle {
+    position: fixed;
+    bottom: 85px;
+    right: 5px;
+    background: #7a7d7f;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+/* Chatbot Container (Hidden by Default) */
+.chatbot-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 420px;
+    height: 100vh;
+    background: #222;
+    border-radius: 20px 0 0 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    border-left: 3px solid #555;
+    display: none; /* Hides the chatbot at start */
+}
+
+/* Chatbot Frame */
+.chatbot-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+@media (max-width: 768px) { 
+    .chatbot-container {
+        width: 90%;  /* Make it fit better on small screens */
+        height: 80vh; /* Reduce height */
+        right: 5%;  /* Center it more */
+        bottom: 10px;
+        border-radius: 15px; /* Keep smooth edges */
+    }
+
+    #chatbot-toggle {
+        bottom: 20px; /* Keep button visible */
+        right: 10px;
+    }
+}
+
+</style>
+
+<!-- JavaScript to Toggle Chatbot -->
+<script>
+document.getElementById("chatbot-toggle").addEventListener("click", function() {
+    var chatbot = document.getElementById("chatbot");
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        chatbot.style.display = "block";
+    } else {
+        chatbot.style.display = "none";
+    }
+});
+</script>
 
 
   <!-- Products Section -->
