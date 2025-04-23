@@ -6,6 +6,8 @@
   <title>Sai Sundha Steel Traders</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  
+
 </head>
 <body>
   
@@ -27,6 +29,7 @@
             </span>
         </div>
     </div>
+    
 </header>
 
   <!-- Navigation Bar -->
@@ -127,6 +130,12 @@
         frameborder="0"
     ></iframe>
 </div>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/9423329545" target="_blank"
+   style="position: fixed; bottom: 20px; left: 10px; background-color: #25d366; color: white; padding: 10px 15px; border-radius: 50px; text-decoration: none; font-size: 16px; z-index: 1001;">
+  <i class="fab fa-whatsapp"></i> WhatsApp Us
+</a>
+
 
 <!-- CSS -->
 <style>
@@ -203,26 +212,92 @@ document.getElementById("chatbot-toggle").addEventListener("click", function() {
     <h2 class="section-heading">Our Products</h2>
 
     <!-- Product Image Gallery -->
-    <div class="product-gallery">
-      <div class="gallery-item" data-target-page="steel.html">
-
-        <img src="images/steel1.jpeg" alt="Steel Products">
-        <p>Steel</p>
-      </div>
-      <div class="gallery-item" data-target-page="sheets.html">
-        <img src="images/sheetsss.jpg" alt="Sheets">
-        <p>Sheets</p>
-      </div>
-      <div class="gallery-item" data-target-page="hardware.html">
-        <img src="images/hardware1.jpg" alt="Hardware">
-        <p>Hardware</p>
-      </div>
-      <div class="gallery-item" data-target-page="cement.html">
-        <img src="images/sement.jpeg" alt="Cement">
-        <p>Cement</p>
-      </div>
+    <div class="gallery-item" data-target-page="steel.html">
+      <img src="images/steel1.jpeg" alt="Steel Products">
+      <p>Steel<br><span style="color: green; font-weight: bold;">₹65-85/kg</span></p>
     </div>
-
+    
+    <div class="gallery-item" data-target-page="sheets.html">
+      <img src="images/sheetsss.jpg" alt="Sheets">
+      <p>Sheets<br><span style="color: green; font-weight: bold;">₹60/sq.ft</span></p>
+    </div>
+    
+    <div class="gallery-item" data-target-page="hardware.html">
+      <img src="images/hardware1.jpg" alt="Hardware">
+      <p>Hardware<br><span style="color: green; font-weight: bold;">From ₹25</span></p>
+    </div>
+    
+    <div class="gallery-item" data-target-page="cement.html">
+      <img src="images/sement.jpeg" alt="Cement">
+      <p>Cement<br><span style="color: green; font-weight: bold;">₹340/bag</span></p>
+    </div>
+    <style>/* Product Gallery */
+      .product-gallery {
+        display: block; /* Ensure the items stack vertically */
+        padding: 40px 20px;
+        background-color: #f9f9f9;
+      }
+      
+      /* Individual Product Card */
+      .gallery-item {
+        width: 50%; /* Ensure each item takes up the full width */
+        max-width: 100%;
+        background-color: #f5f5f5;
+        border-radius: 12px;
+       /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);*/
+        overflow: hidden;
+        text-align: center;
+        margin-bottom: 40px; /* Add some space between items */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .gallery-item img {
+        width: 50%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .gallery-item p {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin: 12px 0 6px;
+      }
+      
+      .gallery-item span {
+        font-size: 16px;
+        color: #2e7d32;
+        font-weight: bold;
+      }
+      
+      /* Hover Animation */
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      }
+      
+      /* Responsive: Keep items stacked on smaller screens */
+      @media (max-width: 768px) {
+        .product-gallery {
+          padding: 20px;
+        }
+      
+        .gallery-item {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+      
+      /* Hover effect */
+      .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+      }
+      
+</style>
+    
     </section>
   
  
@@ -323,10 +398,41 @@ body .footer-container {
 }
 
     </style>
+    <!-- Community Feedback Section -->
+<section id="community-feedback" style="background-color: #fff8e1; padding: 40px 20px; text-align: center;">
+  <h2 style="font-size: 28px; color: #222; margin-bottom: 20px;">Share Your Feedback</h2>
+  <p style="margin-bottom: 30px; color: #555;">We value input from our customers and community members!</p>
+  <form style="max-width: 500px; margin: 0 auto; text-align: left;">
+    <label>Name:</label><br>
+    <input type="text" placeholder="Your Name" style="width: 100%; padding: 10px; margin-bottom: 10px;"><br>
+    <label>Email:</label><br>
+    <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px;"><br>
+    <label>Message:</label><br>
+    <textarea placeholder="Write your message..." rows="4" style="width: 100%; padding: 10px;"></textarea><br>
+    <button type="submit" style="padding: 10px 20px; background-color: #f4b400; border: none; color: white; font-weight: bold; cursor: pointer;">Submit</button>
+  </form>
+</section>
+
   </footer>
   <script src="script.js"></script>
 
-
+  <script>
+    const tabs = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".tab-content");
+  
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove("active"));
+        sections.forEach(s => s.classList.remove("active"));
+  
+        this.classList.add("active");
+        const targetId = this.getAttribute("data-tab");
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+  </script>
+  
 
 </body>
 

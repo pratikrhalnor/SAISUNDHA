@@ -120,7 +120,7 @@ nav ul li a.active {
 /* Ensure Image Covers Entire Screen */
 .image-container img {
   width: 100%;
-  height: 100%; /* Full height */
+  height: 90%; /* Full height */
   object-fit: cover; /* Ensures full coverage without distortion */
   display: block;
 }
@@ -336,139 +336,6 @@ nav ul li a.active {
 }
 
 /* Product Gallery */
-.product-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 150px;
-  margin-top: 120px;
-  padding: 5px;
-}
-
-.gallery-item {
-  width: 180px;
-  text-align: center ;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-}
-
-.gallery-item img {
-  flex: 1;
-  width: 150%;
-  height: 250px;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-.gallery-item p {
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Hover effect */
-.gallery-item:hover {
-  transform: scale(1.20);
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-}
-
-/* Active state for selected product details */
-.product-details.active {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .product-gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery-item {
-    width: 90%;
-  }
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-  nav ul {
-    text-align: center;
-    padding: 0;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 10px 0;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 10px;
-  }
-}
-
-/* Make Images More Responsive */
-@media (max-width: 768px) {
-  .image-container {
-    height: 50vh;
-  }
-
-  .image-container img {
-    object-fit: contain;
-  }
-}
-
-/* Adjust Text Overlay for Smaller Screens */
-@media (max-width: 768px) {
-  .text-overlay {
-    width: 95%;
-    padding: 10px;
-  }
-
-  .text-overlay h1 {
-    font-size: 24px;
-  }
-
-  .text-overlay h2 {
-    font-size: 32px;
-  }
-}
-
-/* Adjust Product Gallery */
-@media (max-width: 768px) {
-  .product-gallery {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-  .gallery-item {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-/* Improve Product Details Layout */
-@media (max-width: 768px) {
-  .product-details-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-details {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-}
 
 /* Logos & Categories Adjustments */
 @media (max-width: 768px) {
